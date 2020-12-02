@@ -1,18 +1,38 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main{
-    char* filename = "expense_report.txt"
-	FILE *fp = fopen(filename, "r");
+/////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                     //
+//                           Function Declarations                                     //
+//                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////
+/* Open file and return file pointer */
+FILE* open_file(char*);
 
-    if(!fp) return;
+int main(void) {
+    printf("Running Day 1\n");
 
-    int i = 0
+    FILE* fp = open_file("/home/amanda/AdventOfCode2020/01/expense_report.txt");
+    if(!fp) return 1;
+
+    int i = 0;
     if(fscanf(fp, "%d", &i) < 1){
 		printf("Could not read an integer value!\n");
-		return EOF;
+		return 1;
 	}
-	print(i);
+	printf("%d\n", i);
 
     return 0;
+}
+
+
+FILE* open_file(char* filename){
+    FILE *fp = fopen(filename, "r");
+
+    if(!fp){
+        printf("Failed to open file %s\n", filename);
+        return NULL;
+    }
+
+    return fp;
 }
