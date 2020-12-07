@@ -33,10 +33,10 @@ default:  $(DAY2)
 
 # executables
 $(DAY1): $(OBJS1) 
-	$(LD) $(LFLAGS) $(OBJS) -o $(DAY1)
+	$(LD) $(LFLAGS) $(OBJS1) -o $(DAY1)
 
 $(DAY2): $(OBJS2)
-	$(LD) $(LFLAGS) $(OBJS) -o $(DAY2)
+	$(LD) $(LFLAGS) $(OBJS2) -o $(DAY2)
 	
 #ex. $(DEBUG): $(OBJS)
 #	$(LD) $(LFLAGS) $(DEBUGFLAGS) $(OBJS) -o $(DEBUG)
