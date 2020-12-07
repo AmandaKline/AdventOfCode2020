@@ -21,14 +21,17 @@ DEBUGFLAGS = -g3 -DDEBUG
 
 OBJS1 = day1.o utils.o
 OBJS2 = day2.o utils.o
+OBJS3 = day3.o utils.o
 DAY1 = 01/day1.exe
 DAY2 = 02/day2.exe
+DAY3 = 03/day3.exe
 #ex. DEBUG = $(DAY1)_debug
 
 # following asks for executables to be built
-default:  $(DAY2)
+default:  $(DAY3)
 1: $(DAY1)
 2: $(DAY2)
+3: $(DAY3)
 #debug: $(DEBUG)
 
 # executables
@@ -37,6 +40,9 @@ $(DAY1): $(OBJS1)
 
 $(DAY2): $(OBJS2)
 	$(LD) $(LFLAGS) $(OBJS2) -o $(DAY2)
+
+$(DAY3): $(OBJS3)
+	$(LD) $(LFLAGS) $(DEBUGFLAGS) $(OBJS3) -o $(DAY3)
 	
 #ex. $(DEBUG): $(OBJS)
 #	$(LD) $(LFLAGS) $(DEBUGFLAGS) $(OBJS) -o $(DEBUG)
@@ -47,6 +53,9 @@ day1.o: 01/day1.c util/utils.h
 
 day2.o: 02/day2.c util/utils.h
 	$(CC) $(CFLAGS) 02/day2.c
+
+day3.o: 03/day3.c util/utils.h
+	$(CC) $(CFLAGS) 03/day3.c
 
 utils.o: util/utils.c util/utils.h 
 	$(CC) $(CFLAGS) util/utils.c

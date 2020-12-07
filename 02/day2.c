@@ -4,10 +4,8 @@
 #include <string.h>
 
 int main(void) {
-    printf("Starting main\n");
     FILE* fp = open_file("/home/amanda/AdventOfCode2020/02/passwords.txt");
     if(!fp) return 1;
-    printf("Opened file\n");
 
     int low = 0, high = 0, valid1 = 0, valid2 = 0;
     char c = 'a';
